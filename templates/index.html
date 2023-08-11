@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS User Permissions</title>
+</head>
+<body>
+    <h1>AWS User Permissions</h1>
+    <form method="POST">
+        <label for="username">Enter AWS Username: </label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Check Permissions</button>
+    </form>
+    
+    {% if username %}
+        <h2>Permissions for {{ username }}:</h2>
+        <ul>
+            {% for permission in permissions %}
+                <li>{{ permission }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if error %}
+        <p>Error: {{ error }}</p>
+    {% endif %}
+</body>
+</html>
